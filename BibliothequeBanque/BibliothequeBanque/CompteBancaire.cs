@@ -95,14 +95,10 @@
         public double Retirer(double montant)
         {
             if (montant < 0)
-            {
                 throw new ArgumentOutOfRangeException("Le montant à retirer est négatif");
-            }
 
             if(Solde - montant < 0)
-            {
                 throw new InvalidOperationException("Le montant à retirer va mener à un solde négatif");
-            }
 
             Solde -= montant;
             return Solde;
