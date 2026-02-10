@@ -68,6 +68,46 @@
             get => _noCompte; 
             set => _noCompte = value;
         }
+
+        /// <summary>
+        /// Méthode pour déposer de l'argent
+        /// </summary>
+        /// <param name="montant">Plus grand que 0</param>
+        /// <returns>Le solde du compte</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public double Deposer(double montant)
+        {
+            if(montant < 0)
+            {
+                throw new ArgumentOutOfRangeException("Le montant déposé est négatif");
+            }
+
+            Solde += montant;
+            return Solde;
+        }
+
+        /// <summary>
+        /// Méthode pour retirer de l'argent
+        /// </summary>
+        /// <param name="montant">Plus grand que 0 et plus petit que le solde courant du compte</param>
+        /// <returns>Le solde du compte</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public double Retirer(double montant)
+        {
+            if (montant < 0)
+            {
+                throw new ArgumentOutOfRangeException("Le montant à retirer est négatif");
+            }
+
+            if(Solde - montant < 0)
+            {
+                throw new InvalidOperationException("Le montant à retirer va mener à un solde négatif");
+            }
+
+            Solde -= montant;
+            return Solde;
+        }
+
     }
 
 }
