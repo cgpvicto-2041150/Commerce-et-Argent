@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="BibliothequeBanque/BibliothequeBanque.csproj" />
+  <Project Path="ConsoleApp1/ConsoleApp1.csproj" Id="1a239103-6793-483a-9f3d-5e8180523ad1" />
+  <Project Path="TestBibliothequeBanque/TestBibliothequeBanque.csproj" Id="a0205668-1e8a-4317-be4e-3e257d89ffe6" />
 </Solution>
