@@ -74,10 +74,11 @@
         /// </summary>
         /// <param name="montant">Plus grand que 0</param>
         /// <returns>Le solde du compte</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException">Exception lance lorsque le montant à retirer est négatif</exception>
         public double Deposer(double montant)
         {
-            if(montant < 0)
+            //verif sanitaire
+            if (montant < 0)
             {
                 throw new ArgumentOutOfRangeException("Le montant déposé est négatif");
             }
@@ -87,11 +88,12 @@
         }
 
         /// <summary>
-        /// Méthode pour retirer de l'argent
+        /// Méthode pour retirer de l'argent d'un compte
         /// </summary>
-        /// <param name="montant">Plus grand que 0 et plus petit que le solde courant du compte</param>
-        /// <returns>Le solde du compte</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <param name="montant">Montant à retirer</param>
+        /// <returns>Le solde</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Exception lance lorsque le montant à retirer est négatif</exception>
+        /// <exception cref="InvalidOperationException">Exception lance lorsque le compte après le retrait tombe au négatif</exception>
         public double Retirer(double montant)
         {
             if (montant < 0)
